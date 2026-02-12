@@ -7,7 +7,6 @@ import {
   KeyboardAvoidingView,
   Platform,
   ActivityIndicator,
-  Alert,
 } from "react-native";
 import { useState } from "react";
 import { Link, useRouter } from "expo-router";
@@ -23,9 +22,11 @@ export default function Login() {
   const { user, token, isLoading, login } = useAuthStore();
 
   const router = useRouter();
+
   const handleLogin = async () => {
     const response = await login(email, password);
-    console.log(response, "RESPONSEEEE---->");
+    console.log(response);
+    router.replace("/(tabs)");
   };
 
   return (

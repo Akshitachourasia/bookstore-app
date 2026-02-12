@@ -25,12 +25,10 @@ export default function Signup() {
   const handleSignUp = async () => {
     try {
       const response = await register(username, email, password);
-      console.log(response, "---RESPONSE--->>");
       if (response) {
         router.replace("/(auth)");
       }
     } catch (error: any) {
-      console.log(error, "---ERROR--->>");
       Alert.alert("Error", error.message || "Registration failed");
     }
   };
